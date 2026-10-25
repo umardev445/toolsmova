@@ -1,0 +1,31 @@
+# Toolmova
+
+> Practical browser-based image tools in English and Bahasa Indonesia.
+
+## Language editions
+- [English](https://toolmova.com/en/)
+- [Bahasa Indonesia](https://toolmova.com/id/)
+
+## Tools
+- [Compress photo](https://toolmova.com/en/image-tools/compress-photo/)
+- [JPG to 100 KB](https://toolmova.com/en/image-tools/compress-jpg-to-100kb/)
+- [JPG to 200 KB](https://toolmova.com/en/image-tools/compress-jpg-to-200kb/)
+- [Photo to 500 KB](https://toolmova.com/en/image-tools/compress-photo-to-500kb/)
+- [Resize photo](https://toolmova.com/en/image-tools/resize-photo/)
+- [3 × 4 cm photo](https://toolmova.com/en/image-tools/resize-photo-3x4/)
+- [4 × 6 cm photo](https://toolmova.com/en/image-tools/resize-photo-4x6/)
+- [Crop photo](https://toolmova.com/en/image-tools/crop-photo/)
+- [PNG to JPG](https://toolmova.com/en/image-tools/png-to-jpg/)
+- [Kompres foto online](https://toolmova.com/id/alat-gambar/kompres-foto/)
+- [Kompres JPG 100 KB](https://toolmova.com/id/alat-gambar/kompres-jpg-100-kb/)
+- [Kompres JPG 200 KB](https://toolmova.com/id/alat-gambar/kompres-jpg-200-kb/)
+- [Kompres foto 500 KB](https://toolmova.com/id/alat-gambar/kompres-foto-500-kb/)
+- [Ubah ukuran foto](https://toolmova.com/id/alat-gambar/ubah-ukuran-foto/)
+- [Ubah ukuran foto 3×4 cm](https://toolmova.com/id/alat-gambar/ubah-ukuran-foto-3x4/)
+- [Ubah ukuran foto 4×6 cm](https://toolmova.com/id/alat-gambar/ubah-ukuran-foto-4x6/)
+- [Crop foto online](https://toolmova.com/id/alat-gambar/crop-foto/)
+- [PNG ke JPG](https://toolmova.com/id/alat-gambar/png-ke-jpg/)
+
+## Limitations
+
+JPG compression is lossy. Size limits are verified against actual output bytes. No promise of upload acceptance or official photo compliance.
