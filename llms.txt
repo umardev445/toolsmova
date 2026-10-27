@@ -1,10 +1,11 @@
 # Toolmova
 
-> Practical browser-based image tools in English and Bahasa Indonesia.
+> Practical browser-based image tools in English, Bahasa Indonesia and Spanish.
 
 ## Language editions
 - [English](https://toolmova.com/en/)
 - [Bahasa Indonesia](https://toolmova.com/id/)
+- [Español](https://toolmova.com/es/)
 
 ## Tools
 - [Compress photo](https://toolmova.com/en/image-tools/compress-photo/)
@@ -16,6 +17,8 @@
 - [4 × 6 cm photo](https://toolmova.com/en/image-tools/resize-photo-4x6/)
 - [Crop photo](https://toolmova.com/en/image-tools/crop-photo/)
 - [PNG to JPG](https://toolmova.com/en/image-tools/png-to-jpg/)
+- [Put two photos side by side](https://toolmova.com/en/image-tools/side-by-side-photos/)
+- [Signature background remover](https://toolmova.com/en/image-tools/signature-background-remover/)
 - [Kompres foto online](https://toolmova.com/id/alat-gambar/kompres-foto/)
 - [Kompres JPG 100 KB](https://toolmova.com/id/alat-gambar/kompres-jpg-100-kb/)
 - [Kompres JPG 200 KB](https://toolmova.com/id/alat-gambar/kompres-jpg-200-kb/)
@@ -25,6 +28,13 @@
 - [Ubah ukuran foto 4×6 cm](https://toolmova.com/id/alat-gambar/ubah-ukuran-foto-4x6/)
 - [Crop foto online](https://toolmova.com/id/alat-gambar/crop-foto/)
 - [PNG ke JPG](https://toolmova.com/id/alat-gambar/png-ke-jpg/)
+- [JPG ke PNG](https://toolmova.com/id/alat-gambar/jpg-ke-png/)
+- [Gabungkan Foto](https://toolmova.com/id/alat-gambar/gabungkan-foto/)
+- [Ubah WebP ke JPG](https://toolmova.com/id/alat-gambar/ubah-webp-ke-jpg/)
+- [HEIC ke JPG](https://toolmova.com/id/alat-gambar/heic-ke-jpg/)
+- [Hapus background tanda tangan](https://toolmova.com/id/alat-gambar/hapus-background-tanda-tangan/)
+- [Convertir WebP a JPG](https://toolmova.com/es/herramientas-imagen/convertir-webp-a-jpg/)
+- [Convertir HEIC a JPG](https://toolmova.com/es/herramientas-imagen/convertir-heic-a-jpg/)
 
 ## Limitations
 

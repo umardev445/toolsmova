@@ -1,0 +1,6 @@
+Toolmova includes unmodified libheif-js 1.23.5 (LGPL-3.0), loaded only for HEIC decoding.
+Package: https://www.npmjs.com/package/libheif-js/v/1.23.5
+Source and build instructions: https://github.com/catdad-experiments/libheif-js
+Underlying source: https://github.com/strukturag/libheif/tree/v1.23.0
+The accompanying LICENSE, libheif-wasm-LICENSE and libheif-LICENSE contain upstream notices.
+You may replace the separately loaded decoder module with a compatible version; the Toolmova worker uses HeifDecoder, decode, get_width/get_height and display.
