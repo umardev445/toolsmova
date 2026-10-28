@@ -39,16 +39,49 @@ export async function renderMerge(sources,options){
  sources.forEach((s,i)=>{const r=layout.items[i];ctx.drawImage(s.image,r.x,r.y,r.width,r.height)});
  return canvas;
 }
+// Closing fills narrow pen strokes without flattening broad variations in the
+// paper. Sliding extrema keep all four passes linear, including on large photos.
+function paperBrightness(rgba,width,height){
+ if(width<32||height<32)return null;
+ const light=new Uint8Array(width*height),scratch=new Uint8Array(light.length);let brightest=1;
+ for(let p=0,i=0;p<light.length;p++,i+=4){light[p]=rgba[i+3]<250?255:Math.round(.2126*rgba[i]+.7152*rgba[i+1]+.0722*rgba[i+2]);brightest=Math.max(brightest,light[p]);}
+ const radius=Math.max(16,Math.min(64,Math.round(Math.min(width,height)*.025)));
+ const deque=new Int32Array(Math.max(width,height));
+ function extrema(input,output,vertical,maximum){
+  const length=vertical?height:width,lines=vertical?width:height,stride=vertical?width:1;
+  for(let line=0;line<lines;line++){
+   const base=vertical?line:line*width;let head=0,tail=0,right=0;
+   for(let x=0;x<length;x++){
+    const end=Math.min(length-1,x+radius);
+    while(right<=end){const value=input[base+right*stride];while(tail>head&&(maximum?input[base+deque[tail-1]*stride]<=value:input[base+deque[tail-1]*stride]>=value))tail--;deque[tail++]=right++;}
+    while(head<tail&&deque[head]<x-radius)head++;
+    output[base+x*stride]=input[base+deque[head]*stride];
+   }
+  }
+ }
+ extrema(light,scratch,false,true);extrema(scratch,light,true,true);
+ extrema(light,scratch,false,false);extrema(scratch,light,true,false);
+ // A broad dark pen stroke must not become its own paper reference.
+ return {light,minimum:brightest*.6};
+}
 export function cleanSignature(rgba,width,height,{threshold=220,softness=28,ink='original',trim=true}={}){
+ validateDimensions(width,height);
  if(width*height>STUDIO_LIMITS.signaturePixels)fail('signaturePixels');
+ if(rgba.length!==width*height*4)fail('invalid');
  if(!Number.isFinite(threshold)||threshold<80||threshold>250||!Number.isFinite(softness)||softness<5||softness>70)fail('invalid');
  const data=new Uint8ClampedArray(rgba.length);let minX=width,minY=height,maxX=-1,maxY=-1;
  const colour=/^#[0-9a-f]{6}$/i.test(ink)?[1,3,5].map(i=>parseInt(ink.slice(i,i+2),16)):null;
+ const paper=paperBrightness(rgba,width,height);
+ // After paper normalization a faint stroke may differ by only a few levels.
+ // Keep the sensitivity control useful in that local-contrast range.
+ const cutoff=paper?255-(255-threshold)/4:threshold;
  for(let i=0;i<rgba.length;i+=4){
-  const light=.2126*rgba[i]+.7152*rgba[i+1]+.0722*rgba[i+2];
-  const alpha=Math.round(Math.max(0,Math.min(1,(threshold-light)/softness))*rgba[i+3]);
+  const background=paper?Math.max(1,paper.minimum,paper.light[i/4]):255;
+  const light=(.2126*rgba[i]+.7152*rgba[i+1]+.0722*rgba[i+2])*255/background;
+  const alpha=Math.round(Math.max(0,Math.min(1,(cutoff-light)/softness))*rgba[i+3]);
   if(alpha){
-   for(let k=0;k<3;k++)data[i+k]=colour?colour[k]:Math.max(0,Math.min(255,(rgba[i+k]-255*(1-alpha/255))/(alpha/255)));
+   const coverage=alpha/rgba[i+3];
+   for(let k=0;k<3;k++)data[i+k]=colour?colour[k]:Math.max(0,Math.min(255,(rgba[i+k]-background*(1-coverage))/coverage));
    data[i+3]=alpha;
    if(alpha>12){const p=i/4,x=p%width,y=Math.floor(p/width);minX=Math.min(minX,x);maxX=Math.max(maxX,x);minY=Math.min(minY,y);maxY=Math.max(maxY,y);}
   }

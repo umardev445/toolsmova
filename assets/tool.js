@@ -1,4 +1,4 @@
-import{loadImage,processImage,toPixels,targetBytes,validateDimensions,fitCrop,ToolError}from'./engine.js';
+import{loadImage,processImage,toPixels,targetBytes,validateDimensions,fitCrop,resizeCrop,ToolError}from'./engine.js';
 
 const page=JSON.parse(document.getElementById('site-data').textContent);
 const S=page.strings,config=page.tool,$=id=>document.getElementById(id);
@@ -59,10 +59,10 @@ if(cropMode){
  const stage=$('crop-stage');let drag=null;
  stage.addEventListener('pointerdown',e=>{if(busy||!source||!$('crop-box').contains(e.target))return;e.preventDefault();drag={x:e.clientX,y:e.clientY,selection:{...selection},resize:e.target===$('crop-handle')};stage.setPointerCapture(e.pointerId);});
  stage.addEventListener('pointermove',e=>{if(!drag)return;const r=stage.getBoundingClientRect(),dx=(e.clientX-drag.x)*source.width/r.width,dy=(e.clientY-drag.y)*source.height/r.height,old=drag.selection;
-  if(drag.resize){let w=Math.max(20,old.width+dx),h=Math.max(20,old.height+dy);if(ratio){h=w/ratio;const maxW=Math.min(source.width-old.x,(source.height-old.y)*ratio);w=Math.min(w,maxW);h=w/ratio;}else{w=Math.min(w,source.width-old.x);h=Math.min(h,source.height-old.y);}setSelection({...old,width:w,height:h});}else setSelection({...old,x:old.x+dx,y:old.y+dy});
+  if(drag.resize)setSelection(resizeCrop(old,dx,dy,source.width,source.height,ratio));else setSelection({...old,x:old.x+dx,y:old.y+dy});
  });
  function endDrag(){if(drag){drag=null;markDirty();}}stage.addEventListener('pointerup',endDrag);stage.addEventListener('pointercancel',endDrag);
- $('crop-box').addEventListener('keydown',e=>{if(!source||busy||!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.key))return;e.preventDefault();const step=e.shiftKey?10:1,dx=e.key==='ArrowRight'?step:e.key==='ArrowLeft'?-step:0,dy=e.key==='ArrowDown'?step:e.key==='ArrowUp'?-step:0;if(e.target===$('crop-handle'))setSelection({...selection,width:selection.width+dx,height:selection.height+dy});else setSelection({...selection,x:selection.x+dx,y:selection.y+dy});markDirty();});
+ $('crop-box').addEventListener('keydown',e=>{if(!source||busy||!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.key))return;e.preventDefault();const step=e.shiftKey?10:1,dx=e.key==='ArrowRight'?step:e.key==='ArrowLeft'?-step:0,dy=e.key==='ArrowDown'?step:e.key==='ArrowUp'?-step:0;if(e.target===$('crop-handle'))setSelection(resizeCrop(selection,dx,dy,source.width,source.height,ratio));else setSelection({...selection,x:selection.x+dx,y:selection.y+dy});markDirty();});
  for(const [id,key]of[['crop-x','x'],['crop-y','y'],['crop-w','width'],['crop-h','height']])$(id).addEventListener('change',()=>{if(!source)return;const v=Number($(id).value);if(!Number.isFinite(v))return;let next={...selection,[key]:v};if(ratio&&key==='height')next.width=v*ratio;setSelection(next);markDirty();});
 }
 $('preview-original').addEventListener('click',showOriginal);$('preview-result').addEventListener('click',()=>{if(!resultUrl)return;$('input-preview').hidden=true;$('crop-stage').hidden=true;$('crop-controls').hidden=true;$('output-preview').hidden=false;$('preview-original').setAttribute('aria-pressed','false');$('preview-result').setAttribute('aria-pressed','true');});
