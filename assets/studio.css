@@ -108,3 +108,8 @@
 @media(max-width:700px){.root-home .home-hero{gap:24px;padding:35px 0 26px}.root-home .home-hero h1{font-size:3.2rem}.pro-visual{max-width:470px;margin:auto;padding:0}.workspace-board{border-radius:11px}.workspace-top{font-size:11px;padding:17px}.workspace-body{padding:20px}.workspace-tile{min-height:128px;padding:18px;font-size:14px;gap:19px}.workspace-live{font-size:7px;max-width:115px}.workspace-tiles{gap:10px;margin-bottom:21px}.workspace-kicker{font-size:8px}.workflow-body h2{font-size:22px}.photo-stage{height:190px}.workflow-settings{gap:12px}.visual-footer{font-size:9px;padding-top:3px}.root-home .hero-eyebrow{font-size:10px;letter-spacing:.1em}.tool-groups{grid-template-columns:1fr}.format-studio{gap:22px}.source-files span{width:62px;height:60px}.destination-file{width:83px;height:110px}}
 @media(max-width:360px){.root-home .home-hero h1{font-size:2.8rem}.workspace-top{font-size:10px;padding:14px}.workspace-body{padding:16px}.workspace-tile{padding:15px;min-height:117px}.workspace-tiles{gap:9px}.workspace-live{font-size:6px;max-width:95px}.workspace-bottom{font-size:9px}.format-studio{gap:16px}}
 @media(prefers-reduced-motion:reduce){.pro-visual *{animation:none!important;transition:none!important}.pro-visual .scene-motion{display:none}}
+/* Shared touch and focus treatment; existing image-tool behavior is unchanged. */
+.queue-buttons button,.swatch{width:44px;height:44px;min-height:44px;min-width:44px}
+.studio-result .btn,.studio-results-heading .btn,.studio-eraser>.btn{min-height:44px}
+.studio-action>.btn,.studio-drop>.btn{min-height:48px}
+.studio-preview-bar>span:first-child{text-transform:none;letter-spacing:.01em}

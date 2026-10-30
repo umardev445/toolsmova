@@ -9,7 +9,7 @@
 @media(prefers-reduced-motion:no-preference){.btn,.tool-card,.filter{transition:background .15s ease,border-color .15s ease}.search-result{transition:background .1s ease}}
 @media print{.site-header,.search-strip,.sidebar,.site-footer,.tool-workspace,.workspace-notes,.quick-help{display:none}.shell,.article-layout{display:block}.main{padding:0}.editorial{max-width:none}.faq details p{display:block}.article-aside{display:none}}
 
-/* Design review: shared homes, compact discovery and an integrated header. */
+/* Shared homes, compact discovery and an integrated header. */
 :root{--header:76px;--muted:#55656c}
 .site-header{height:var(--header);padding:0 clamp(20px,4.1vw,64px);gap:30px;border-bottom-color:#e4e8e4;background:#fff}
 .site-header .brand{font-size:1.54rem;gap:10px;letter-spacing:-.055em}
@@ -144,3 +144,26 @@
 .checkbox{min-height:44px;align-items:center}
 .field-control{border-color:#7d9285}
 .header-search .search-input{border-color:#9aaca0}
+
+/* Image + PDF collection: shared presentation, existing tool engines retained. */
+.eyebrow,.sidebar-label,.section-label,.tool-group>h3,.studio-preview-bar>span:first-child,.workspace-kicker,.workspace-live{ text-transform:none!important;letter-spacing:.01em!important; }
+.pdf-catalog{margin-top:42px;padding:32px 0 0;border-top:1px solid #dce5d9;scroll-margin-top:25px}
+.pdf-catalog .tool-card>.icon{background:#eeefe4;color:#4d623a}
+.pdf-catalog .tool-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.tool-catalog>.section-heading p{max-width:500px}
+.brand-home .hero-eyebrow{letter-spacing:0}.brand-home .home-hero h1{font-size:clamp(2.5rem,4.1vw,3.5rem)}
+.card-arrow,.hero-action-arrow,.workspace-tile>i{display:none!important}
+.section-label{font-size:.78rem;font-weight:600}.input-panel>.section-label,.settings-panel>.section-label{padding-left:0!important}.input-panel>.section-label:before,.settings-panel>.section-label:before{display:none!important}
+.btn{min-height:48px}.btn-outline{box-shadow:none}.studio .btn:disabled{background:#eef2ed!important;border-color:#cbd7ca!important;color:#53695a!important;box-shadow:none!important}
+#tool-form:has(#file-details[hidden]) #process-btn{visibility:hidden}
+#tool-form:has(#result:not([hidden])) #process-btn{display:none}
+#tool-form:has(#file-details:not([hidden])) #choose-file{display:none}
+.studio:has(#studio-results:not([hidden])) #studio-run{display:none}
+.studio-settings-heading .eyebrow{display:none}.studio-settings-heading h2{margin-top:0}
+:is(.queue-buttons button,.swatch,.studio-preview-bar button,.studio-sample,.text-button){min-width:44px;min-height:44px}
+.studio-preview-bar{flex-wrap:wrap}.queue-buttons{flex-wrap:wrap;justify-content:flex-end}.queue-buttons button{width:44px;height:44px}.swatch{width:44px;height:44px}.studio-eraser .btn{min-height:44px}.studio-colour{min-height:44px}
+.header-search .search-results{max-height:60vh;overflow-y:auto}.sidebar-guides a{overflow-wrap:anywhere}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:3px solid #126ba2;outline-offset:3px}
+@media(max-width:850px){.pdf-catalog .tool-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.pdf-catalog{margin-top:32px;padding-top:26px}.pdf-catalog .tool-grid{grid-template-columns:1fr}.btn,.hero-start{width:100%;min-height:48px}.hero-actions{align-items:stretch}.home-hero h1{font-size:2.45rem!important}.studio-stage-head{align-items:flex-start}.studio-format-badge{white-space:normal;text-align:right}.studio-privacy{gap:8px}.studio .studio-queue li{flex-wrap:wrap}.studio .queue-buttons{margin-left:auto}.studio-eraser input{height:44px}}
+.brand{min-height:44px}.hub-sections{display:flex;gap:9px;margin:0 0 24px;padding-bottom:22px;border-bottom:1px solid #dce5d9}.hub-sections a{min-height:44px;padding:10px 18px;background:white;border:1px solid #c8d9cd;border-radius:7px;color:#355d45;text-decoration:none;font-size:.83rem;font-weight:550}.hub-sections a:hover{background:#edf5eb}.pdf-catalog+.more-tools{margin-top:35px}
