@@ -1,6 +1,6 @@
 # Toolmova
 
-> Practical browser-based image tools in English, Bahasa Indonesia and Spanish.
+> Practical browser-based image and PDF tools in English, Bahasa Indonesia and Spanish.
 
 ## Language editions
 - [English](https://toolmova.com/en/)
@@ -33,6 +33,11 @@
 - [Ubah WebP ke JPG](https://toolmova.com/id/alat-gambar/ubah-webp-ke-jpg/)
 - [HEIC ke JPG](https://toolmova.com/id/alat-gambar/heic-ke-jpg/)
 - [Hapus background tanda tangan](https://toolmova.com/id/alat-gambar/hapus-background-tanda-tangan/)
+- [PDF ke JPG](https://toolmova.com/id/alat-pdf/pdf-ke-jpg/)
+- [Gabungkan PDF](https://toolmova.com/id/alat-pdf/gabungkan-pdf/)
+- [Pisahkan PDF](https://toolmova.com/id/alat-pdf/pisahkan-pdf/)
+- [PNG ke PDF](https://toolmova.com/id/alat-pdf/png-ke-pdf/)
+- [Foto ke PDF](https://toolmova.com/id/alat-pdf/foto-ke-pdf/)
 - [Convertir WebP a JPG](https://toolmova.com/es/herramientas-imagen/convertir-webp-a-jpg/)
 - [Convertir HEIC a JPG](https://toolmova.com/es/herramientas-imagen/convertir-heic-a-jpg/)
 
