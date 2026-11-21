@@ -1,0 +1,5 @@
+.pdf-example-hero {display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);align-items:center;gap:clamp(12px,2vw,30px);margin:0 0 24px;padding:clamp(16px,2.6vw,34px);background:#f5f8f5;border:1px solid #cddbd5;border-radius:18px;color:#183833}
+.pdf-example-hero header {margin:0;min-width:0;padding:0}
+.pdf-example-hero header p {max-width:58ch}
+.pdf-example-hero img {display:block;width:100%;height:auto;border-radius:12px}
+@media(max-width:760px){.pdf-example-hero {grid-template-columns:1fr;padding:14px;gap:10px;margin-bottom:15px}.pdf-example-hero img{max-height:145px;object-fit:contain;background:#e6eff0}.pdf-example-hero h1{font-size:clamp(1.5rem,6.4vw,2rem);line-height:1.13}}

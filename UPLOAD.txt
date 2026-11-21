@@ -1,0 +1,4 @@
+Day 10-15 | GitHub upload
+
+ZIP extract karein. Upload_Batches/Batch_01 kholein. Is ke andar ke assets aur id folders ek saath apni website repository ke root par upload karein. Ek commit mein 19 files.
+Full_Source mein Day 15 tak ka editable project aur build hai. Ye backup hai.
